@@ -6,8 +6,8 @@ interface GraphProps  {
     type: "real" | "repeated" | "complex";
   };
   
-  const WIDTH = 320;
-  const HEIGHT = 320;
+  const WIDTH = 400;
+  const HEIGHT = 400;
   
   export  function GraphCanvas({ a, b, c, roots, type }: GraphProps) {
     
@@ -29,8 +29,8 @@ interface GraphProps  {
     }
   
     const yValues = points.map((p) => p[1]);
-    const yMin = Math.min(...yValues, 0);
-    const yMax = Math.max(...yValues, 0);
+    const yMin = Math.min(...yValues, -5);
+    const yMax = Math.max(...yValues, 5);
   
     const toSvgX = (x: number) => ((x - xMin) / (xMax - xMin)) * WIDTH;
     const toSvgY = (y: number) => HEIGHT - ((y - yMin) / (yMax - yMin)) * HEIGHT;
@@ -48,13 +48,13 @@ interface GraphProps  {
         : [];
   
     return (
-      <svg width={WIDTH} height={HEIGHT} className="bg-rose-50 border rounded shadow">
+      <svg width={WIDTH} height={HEIGHT} className="bg-#FFF1F2 border rounded shadow">
         
-        <line x1={0} y1={xAxisY} x2={WIDTH} y2={xAxisY} stroke="#ccc" />
-        <line x1={yAxisX} y1={0} x2={yAxisX} y2={HEIGHT} stroke="#ccc" />
+        <line x1={0} y1={xAxisY} x2={WIDTH} y2={xAxisY} stroke="#660033" />
+        <line x1={yAxisX} y1={0} x2={yAxisX} y2={HEIGHT} stroke="#660033" />
   
         
-        <path d={pathD} fill="none" stroke="#2563eb" strokeWidth={2} />
+        <path d={pathD} fill="none" stroke="#AD1457" strokeWidth={2} />
   
         
         {realRoots?.map((r, i) => (

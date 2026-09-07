@@ -23,13 +23,21 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-rose-50 flex flex-col items-center">
-      <div className="h-30 w-screen bg-primary">
-        <div className="flex justify-center p-4">
-            <p className="text-3xl text-shade font-Poppins mb-1 text-8xl">Parabola</p>
+      <div className="h-45 w-screen bg-primary">
+        <div className="flex justify-center items-center">
+         
+          <div className="flex items-center">
+            <div className="-translate-x-5">
+              <img src = "./parabola.png" className="h-50 w-80"/>
+            </div>
+            <div className="-translate-x-25">
+            <p className="text-3xl text-shade font-Poppins text-8xl ">Parabola</p>
+            </div>
+            </div>
         </div>
       </div>
       <div className="pt-30">
-      <p className="font-Poppins text-secondary text-2xl mb-6">Solve any quadratic equation ax² + bx + c = 0</p>
+      <p className="font-Poppins text-dark text-2xl mb-6">Solve any quadratic equation ax² + bx + c = 0</p>
       
       
       <div className="flex justify-center gap-3 mb-4">
@@ -42,11 +50,31 @@ export default function App() {
       {error && <p className="text-red-500">{error}</p>}
 
       {result && (
-        <div className="bg-white shadow rounded p-4 w-72 text-center">
-          <p>Discriminant: {result.discriminant}</p>
-          <p>Type: {result.type}</p>
-          <p>Root 1: {result.roots[0]}</p>
-          <p>Root 2: {result.roots[1]}</p>
+        <div className="bg-rose-50 pt-16">
+          <div className="text-center">
+            <p className="font-Poppins text-2xl text-dark">Root Analysis:</p>
+            </div>
+            <div className="text-center">
+          <div className="p-2">
+          <p className="font-Poppins text-secondary text-xl">Discriminant: {result.discriminant}</p>
+          </div>
+          <div className="pt-2 text-xl">
+          <p className="font-Poppins text-secondary">Type: {result.type}</p>
+          </div>
+          <div className="pt-2 text-xl">
+          <p className="font-Poppins text-secondary">Root 1: {result.roots[0]}</p>
+          </div>
+          <div className="pt-2 text-xl">
+          <p className="font-Poppins text-secondary">Root 2: {result.roots[1]}</p>
+          </div>
+          </div>
+          <div className="pt-16 text-center">
+          <p className ="font-Poppins text-2xl text-dark">
+              Quadratic Graph
+            </p>
+            </div>
+          <div className="pt-8 pb-16 ">
+            
           <GraphCanvas
     a={Number(a)}
     b={Number(b)}
@@ -55,6 +83,7 @@ export default function App() {
     type={result.type}
   />
         </div>
+      </div>
         
       )}
     </div>
